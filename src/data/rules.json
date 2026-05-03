@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "category": "基本规则",
+    "severity": "high",
+    "rules": [
+      { "rule": "禁止使用任何作弊客户端或修改过的客户端", "punishment": "永久封禁" },
+      { "rule": "禁止恶意破坏其他玩家的建筑", "punishment": "封禁 7-30 天" },
+      { "rule": "禁止在公共频道使用不当言论或骚扰其他玩家", "punishment": "禁言 1-7 天" },
+      { "rule": "禁止利用 Bug 或漏洞获取不正当利益", "punishment": "回档 + 封禁" }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "建筑规则",
+    "severity": "medium",
+    "rules": [
+      { "rule": "禁止建造不雅或冒犯性建筑", "punishment": "拆除 + 警告" },
+      { "rule": "禁止在他人领地附近恶意圈地", "punishment": "拆除领地 + 警告" },
+      { "rule": "禁止建造大规模影响服务器性能的红石机器", "punishment": "拆除 + 警告" }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "交易规则",
+    "severity": "medium",
+    "rules": [
+      { "rule": "禁止使用现实货币交易游戏内物品", "punishment": "永久封禁" },
+      { "rule": "禁止诈骗其他玩家的物品", "punishment": "封禁 14 天" },
+      { "rule": "禁止恶意刷取经济系统", "punishment": "清零 + 封禁" }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "服务器安全",
+    "severity": "high",
+    "rules": [
+      { "rule": "禁止尝试攻击或入侵服务器", "punishment": "永久封禁 + IP 封禁" },
+      { "rule": "禁止泄露其他玩家的个人信息", "punishment": "永久封禁" },
+      { "rule": "禁止在服务器内宣传其他服务器", "punishment": "永久封禁" }
+    ]
+  }
+]
