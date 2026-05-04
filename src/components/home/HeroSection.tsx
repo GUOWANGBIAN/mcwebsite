@@ -27,6 +27,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/bg-hero.svg')" }}
+      />
       {/* Background effects */}
       <div className="absolute inset-0 grid-bg" />
       <div className="particles" />
