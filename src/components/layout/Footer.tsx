@@ -164,7 +164,7 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <img 
-                src="/beian.png" 
+                src="./beian.png" 
                 alt="警徽" 
                 className="h-5 w-auto object-contain"
               />
