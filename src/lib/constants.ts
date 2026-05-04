@@ -1,12 +1,12 @@
 // ===== 服务器配置 - 请修改为你自己的服务器信息 =====
 export const SERVER_CONFIG = {
   // Minecraft 服务器
-  serverIP: "play.example.com",
-  serverPort: 25565,
+  serverIP: "play.mgstudio.icu",
+  serverPort: 41360,
   serverName: "MyCraft 服务器",
-  serverDescription: "一个充满创造力与冒险的 Minecraft 社区",
-  serverVersion: "1.20.4",
-  maxPlayers: 100,
+  serverDescription: "一个充满创造力与冒险的 Minecra ft 社区",
+  serverVersion: "1.21.8",
+  maxPlayers: 30,
 
   // Discord
   discordInvite: "https://discord.gg/your-invite",
@@ -19,9 +19,10 @@ export const SERVER_CONFIG = {
   foundedDate: "2024-01-01",
   ownerName: "ServerOwner",
   teamMembers: [
-    { name: "ServerOwner", role: "服主", uuid: "uuid-here" },
+    { name: "CNQH_Guoshifu", role: "服主", uuid: "76a0ca2c-d492-48c5-8100-b088df6f20c8" },
     { name: "Admin1", role: "管理员", uuid: "uuid-here" },
     { name: "Builder1", role: "建筑师", uuid: "uuid-here" },
+    { name: "Builder2", role: "建筑师", uuid: "uuid-here" },
   ],
 
   // 服务器特色
@@ -63,12 +64,12 @@ export const SERVER_CONFIG = {
 export const STATUS_REFRESH_INTERVAL = 30000;
 
 // Crafatar API
-export const CRAFATAR_BASE = "https://crafatar.com";
+export const CRAFATAR_BASE = "https://mc-heads.net";
 
 // Mojang API
 export const MOJANG_API = "https://api.mojang.com";
 
-// 颜色主题
+// 颜色主题 
 export const THEME = {
   primary: "#4ade80",
   secondary: "#06b6d4",

@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -24,7 +22,6 @@ export default function PerformanceChart() {
   const [data, setData] = useState<DataPoint[]>([]);
 
   useEffect(() => {
-    // Generate initial data points
     const initial: DataPoint[] = [];
     const now = new Date();
     for (let i = 23; i >= 0; i--) {
@@ -34,13 +31,12 @@ export default function PerformanceChart() {
           hour: "2-digit",
           minute: "2-digit",
         }),
-        players: Math.floor(Math.random() * 30) + 10,
-        latency: Math.floor(Math.random() * 50) + 20,
+        players: 0,
+        latency: 0,
       });
     }
     setData(initial);
 
-    // Add new data point every 30s
     const interval = setInterval(() => {
       fetch("/api/status")
         .then((r) => r.json())

@@ -31,18 +31,24 @@ export default function Footer() {
               </a>
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-white hover:border-white/30 transition-colors"
               >
                 <Globe size={16} />
               </a>
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-[#1da1f2] hover:border-[#1da1f2]/30 transition-colors"
               >
                 <AtSign size={16} />
               </a>
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-[#ff0000] hover:border-[#ff0000]/30 transition-colors"
               >
                 <Video size={16} />
@@ -137,12 +143,41 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[#1e2d3d] flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-[#64748b] text-xs">
-            &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not
-            affiliated with Mojang AB.
+            &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not affiliated with Mojang AB.
           </p>
-          <p className="text-[#64748b] text-xs">
-            Minecraft is a trademark of Mojang AB
-          </p>
+
+          {/* 备案区域 - 已修复 JSX 语法错误 */}
+          <div className="flex items-center gap-1.5 text-[#64748b] text-xs whitespace-nowrap">
+            <a 
+              href="https://beian.miit.gov.cn/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#4ade80] transition-colors"
+            >
+              青ICP备2026000189号-1
+            </a>
+            {/* 分隔符必须用 JSX 元素包裹 */}
+            <span>|</span>
+            <a 
+              href="https://beian.mps.gov.cn/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <img 
+                src="/beian.png" 
+                alt="警徽" 
+                className="h-5 w-auto object-contain"
+              />
+            </a>
+            <a 
+              href="https://beian.mps.gov.cn/#/query/webSearch?code=63012102000179" 
+              rel="noopener noreferrer" 
+              target="_blank"
+              className="hover:text-[#4ade80] transition-colors"
+            >
+              青公网安备63012102000179号
+            </a>
+          </div>
         </div>
       </div>
     </footer>

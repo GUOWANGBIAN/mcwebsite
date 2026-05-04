@@ -45,13 +45,13 @@ export function timeAgo(date: string | Date): string {
 }
 
 export function getPlayerAvatar(uuid: string, size = 64): string {
-  return `https://crafatar.com/avatars/${uuid}?size=${size}&overlay`;
+  return `https://mc-heads.net/avatar/${uuid}?size=${size}&overlay`;
 }
 
 export function getPlayerBody(uuid: string, size = 160): string {
-  return `https://crafatar.com/renders/body/${uuid}?size=${size}&overlay`;
+  return `https://mc-heads.net/body/${uuid}?size=${size}&overlay`;
 }
 
 export function getPlayerHead(uuid: string, size = 32): string {
-  return `https://crafatar.com/heads/${uuid}?size=${size}&overlay`;
+  return `https://mc-heads.net/head/${uuid}?size=${size}&overlay`;
 }

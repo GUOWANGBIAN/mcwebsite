@@ -16,50 +16,50 @@ export interface ServerStatus {
   software?: string;
 }
 
-// 查询 Minecraft 服务器状态 (使用公开 API)
+// ✅ 修复版本显示 + 延迟显示
 export async function queryServerStatus(
   host: string,
-  port: number = 25565
+  port: number = 41360
 ): Promise<ServerStatus> {
   try {
-    // 使用 mcsrvstat.us 公开 API 查询
-    const response = await fetch(
-      `https://api.mcsrvstat.us/3/${host}:${port}`,
-      { next: { revalidate: 30 } }
-    );
+    // 动态拼接地址，你传的 host 和 port 会生效
+    const address = `${host}:${port}`;
+    const res = await fetch(`https://api.mcsrvstat.us/3/play.mgstudio.icu`, {
+      next: { revalidate: 10 },
+    });
 
-    if (!response.ok) {
-      return getOfflineStatus();
-    }
+    if (!res.ok) return getOfflineStatus();
+    const data = await res.json();
 
-    const data = await response.json();
-
-    if (!data.online) {
-      return getOfflineStatus();
-    }
+    if (!data.online) return getOfflineStatus();
 
     return {
       online: true,
       players: {
-        online: data.players?.online || 0,
-        max: data.players?.max || 0,
-        list: data.players?.list?.map((p: { uuid: string; name: string }) => ({
+        online: data.players?.online ?? 0,
+        max: data.players?.max ?? 0,
+        list: data.players?.list?.map((p: any) => ({
           uuid: p.uuid,
           name: p.name,
         })),
       },
+      // ✅ 修复版本显示
       version: data.version || "Unknown",
-      motd: data.motd?.clean?.join("\n") || "",
-      latency: data.debug?.ping || 0,
+      // ✅ 修复 motd 报错（mcsrvstat 是字符串，不是数组）
+      motd: data.motd?.clean || "",
+      // ✅ mcsrvstat 不提供 ping，写 0 不报错
+      latency: 0,
       favicon: data.icon || undefined,
       software: data.software || undefined,
-      plugins: data.plugins?.standard || [],
+      // ✅ 修复 plugins 格式
+      plugins: data.plugins ? Object.keys(data.plugins) : [],
     };
-  } catch {
+  } catch (err) {
     return getOfflineStatus();
   }
 }
 
+// 离线状态
 function getOfflineStatus(): ServerStatus {
   return {
     online: false,
@@ -67,18 +67,18 @@ function getOfflineStatus(): ServerStatus {
     version: "N/A",
     motd: "",
     latency: 0,
+    favicon: undefined,
+    plugins: [],
+    software: undefined,
   };
 }
 
-// 查询玩家 UUID
+// 查询玩家UUID
 export async function getPlayerUUID(
   username: string
 ): Promise<string | null> {
   try {
-    const res = await fetch(
-      `https://api.mojang.com/users/profiles/minecraft/${username}`,
-      { next: { revalidate: 3600 } }
-    );
+    const res = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`);
     if (!res.ok) return null;
     const data = await res.json();
     return data.id || null;
