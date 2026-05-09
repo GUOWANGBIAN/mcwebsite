@@ -12,8 +12,8 @@ export const SERVER_CONFIG = {
   discordInvite: "https://discord.gg/your-invite",
   discordGuildId: "your-guild-id",
 
-  // Dynmap
-  dynmapUrl: "http://your-server:8123",
+  // BlueMap 地图
+  blueMapUrl: "https://map.mgstudio.icu",
 
   // 关于信息
   foundedDate: "2024-01-01",

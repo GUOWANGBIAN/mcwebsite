@@ -8,6 +8,7 @@ import PlayerList from "@/components/status/PlayerList";
 import ServerInfo from "@/components/status/ServerInfo";
 import PerformanceChart from "@/components/status/PerformanceChart";
 import DiscordWidget from "@/components/discord/DiscordWidget";
+import DynmapEmbed from "@/components/map/DynmapEmbed";
 import type { ServerStatus } from "@/lib/minecraft-query";
 
 export default function StatusPage() {
@@ -79,9 +80,10 @@ export default function StatusPage() {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column - Charts & Players */}
+          {/* Left Column - Charts & Map */}
           <div className="lg:col-span-2 space-y-6">
             <PerformanceChart />
+            <DynmapEmbed />
             <PlayerList
               players={status?.players?.list || []}
             />
