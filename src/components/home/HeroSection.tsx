@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Copy, Check, Users, Gamepad2 } from "lucide-react";
 import { copyToClipboard } from "@/lib/utils";
 import { SERVER_CONFIG } from "@/lib/constants";
@@ -28,9 +29,13 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/bg-hero.svg')" }}
+      <Image
+        src="/hero-bg.jpg"
+        alt="MC服务器背景"
+        fill
+        className="object-cover"
+        priority
+        quality={80}
       />
       {/* Background effects */}
       <div className="absolute inset-0 grid-bg" />
