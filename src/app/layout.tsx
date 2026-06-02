@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "多人游戏",
     SERVER_CONFIG.serverName,
   ],
+  icons: {
+    icon: "/Java_Edition_icon_2.png",
+  },
   openGraph: {
     title: `${SERVER_CONFIG.serverName} - Minecraft Java 版服务器`,
     description: SERVER_CONFIG.serverDescription,
