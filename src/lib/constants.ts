@@ -7,7 +7,7 @@ export const SERVER_CONFIG = {
   serverDescription: "一个专注长期运营的纯净养老生存服务器",
   serverVersion: "1.21.8",
   maxPlayers: 30,
-  foundedDate: "2025-05-03",
+  foundedDate: "2026-05-03",
 
   // BlueMap 地图
   blueMapUrl: "https://map.mgstudio.icu",
@@ -74,7 +74,7 @@ export const SERVER_CONFIG = {
 export const STATUS_REFRESH_INTERVAL = 30000;
 
 // 头像 API
-export const CRAFATAR_BASE = "https://mc-heads.net";
+export const CRAFATAR_BASE = "https://crafatar.com";
 export const MOJANG_API = "https://api.mojang.com";
 
 // 导航链接

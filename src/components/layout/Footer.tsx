@@ -20,7 +20,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[#2a2520]/60 mt-auto">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand & Uptime */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -61,6 +61,51 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Resources */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">资源</h3>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href="https://www.minecraft.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#8a8279] text-sm hover:text-[#d4a853] transition-colors"
+                >
+                  Minecraft 官网
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://papermc.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#8a8279] text-sm hover:text-[#d4a853] transition-colors"
+                >
+                  PaperMC
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.curseforge.com/minecraft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#8a8279] text-sm hover:text-[#d4a853] transition-colors"
+                >
+                  CurseForge
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/docs"
+                  className="text-[#8a8279] text-sm hover:text-[#d4a853] transition-colors"
+                >
+                  服务器文档
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Server Info & Changelog */}
           <div>
             <h3 className="text-white font-semibold mb-4">服务器信息</h3>
@@ -95,7 +140,7 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-[#2a2520]/40 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
             <p className="text-[#8a8279]/60 text-xs">
-              &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not affiliated with Mojang AB.
+              &copy; 2026 {SERVER_CONFIG.serverName}. 与 Mojang AB 无关联。
             </p>
             <a
               href={`https://github.com/GUOWANGBIAN/mcwebsite/commit/${GIT_HASH}`}

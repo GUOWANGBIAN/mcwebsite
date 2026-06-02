@@ -96,7 +96,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={handleCopyIP}
-              className="flex items-center gap-2 px-4 py-2 glass rounded-xl text-sm font-mono text-[#d4a853] hover:bg-[#23201a]/65 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 glass rounded-xl text-sm font-mono text-[#d4a853] hover:bg-[#23201a]/65 transition-colors min-w-[180px] justify-center"
             >
               {copied ? (
                 <>
