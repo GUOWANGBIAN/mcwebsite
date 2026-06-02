@@ -29,6 +29,13 @@ export const SERVER_CONFIG = {
     },
   },
 
+  // 管理团队
+  teamMembers: [
+    { name: "CNQH_Guoshifu", role: "服主", uuid: "76a0ca2c-d492-48c5-8100-b088df6f20c8" },
+    { name: "Admin1", role: "管理员", uuid: "uuid-here" },
+    { name: "Builder1", role: "建筑师", uuid: "uuid-here" },
+  ],
+
   // 服务器特色
   features: [
     {
