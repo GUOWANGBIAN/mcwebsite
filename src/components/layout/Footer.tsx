@@ -149,7 +149,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not affiliated with Mojang AB.
             </p>
             <a
-              href={`https://github.com/GUOWANGBIAN/mcwebsite/commits/main/${GIT_HASH}`}
+              href={`https://github.com/GUOWANGBIAN/mcwebsite/commits/${GIT_HASH}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#111820] border border-[#1e2d3d] rounded text-[#64748b] hover:text-[#4ade80] hover:border-[#4ade80]/30 transition-colors text-xs font-mono"
