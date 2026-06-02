@@ -106,7 +106,7 @@ export default function RulesPage() {
               <ul className="text-[#8a8279] text-sm space-y-1">
                 <li>• 管理员保留最终解释权</li>
                 <li>• 重复违规将加重处罚</li>
-                <li>• 如有异议可在 Discord 提出申诉</li>
+                <li>• 如有异议可在 QQ 群提出申诉</li>
                 <li>• 规则可能随时更新，请定期查看</li>
               </ul>
             </div>

@@ -16,7 +16,6 @@ import {
   X,
   Copy,
   Check,
-  ExternalLink,
 } from "lucide-react";
 import { cn, copyToClipboard } from "@/lib/utils";
 import { SERVER_CONFIG, NAV_LINKS } from "@/lib/constants";
@@ -109,14 +108,6 @@ export default function Navbar() {
                 </>
               )}
             </button>
-            <a
-              href={SERVER_CONFIG.community.discord.inviteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-[#5865f2]/80 rounded-xl text-sm font-medium text-white hover:bg-[#5865f2] transition-colors"
-            >
-              <ExternalLink size={14} /> Discord
-            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -159,21 +150,13 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <div className="pt-3 border-t border-[#2a2520]/40 flex flex-col gap-2">
+              <div className="pt-3 border-t border-[#2a2520]/40">
                 <button
                   onClick={handleCopyIP}
-                  className="flex items-center justify-center gap-2 px-4 py-3 glass rounded-xl text-sm font-mono text-[#d4a853]"
+                  className="flex items-center justify-center gap-2 px-4 py-3 glass rounded-xl text-sm font-mono text-[#d4a853] w-full"
                 >
                   <Copy size={14} /> {SERVER_CONFIG.serverIP}
                 </button>
-                <a
-                  href={SERVER_CONFIG.community.discord.inviteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#5865f2]/80 rounded-xl text-sm font-medium text-white"
-                >
-                  <ExternalLink size={14} /> 加入 Discord
-                </a>
               </div>
             </div>
           </motion.div>

@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MessageCircle, Gamepad2, Video, Lightbulb } from "lucide-react";
+import { MessageCircle, Video, Lightbulb } from "lucide-react";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { SERVER_CONFIG } from "@/lib/constants";
@@ -15,15 +14,6 @@ const platforms = [
     href: SERVER_CONFIG.community.qq.joinUrl,
     color: "#12b7f5",
     btnText: "加入群聊",
-  },
-  {
-    name: "Discord",
-    icon: Gamepad2,
-    description: SERVER_CONFIG.community.discord.serverName,
-    detail: "国际社区",
-    href: SERVER_CONFIG.community.discord.inviteUrl,
-    color: "#5865f2",
-    btnText: "加入",
   },
   {
     name: "B 站",
@@ -51,7 +41,7 @@ export default function CommunityModule() {
       title="加入社区"
       subtitle="和志同道合的伙伴一起，创造属于我们的故事"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
         {platforms.map((p, i) => (
           <GlassCard key={p.name} delay={i * 0.08}>
             <div className="text-center">

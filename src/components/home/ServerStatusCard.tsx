@@ -32,25 +32,25 @@ export default function ServerStatusCard() {
       value: status?.online ? status.players.online : "--",
       max: status?.online ? `/ ${status.players.max}` : "",
       icon: Users,
-      color: "#4ade80",
+      color: "#d4a853",
     },
     {
       label: "服务器状态",
       value: status?.online ? "在线" : loading ? "检测中" : "离线",
       icon: Activity,
-      color: status?.online ? "#4ade80" : "#ef4444",
+      color: status?.online ? "#7db87b" : "#d96b5c",
     },
     {
       label: "延迟",
       value: status?.online ? `${status.latency}ms` : "--",
       icon: Wifi,
-      color: "#06b6d4",
+      color: "#7db87b",
     },
     {
       label: "版本",
       value: status?.online ? status.version : "--",
       icon: Clock,
-      color: "#f59e0b",
+      color: "#e8a94e",
     },
   ];
 
@@ -63,13 +63,13 @@ export default function ServerStatusCard() {
             return (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.08, ease: "easeOut" }}
               >
                 <Link href="/status" className="block">
-                  <div className="bg-[#111820] border border-[#1e2d3d] rounded-xl p-5 hover:border-[#2a3f52] transition-all duration-300 card-glow">
+                  <div className="glass rounded-xl p-5 hover:border-[#d4a853]/15 transition-all duration-300 card-glow">
                     <div className="flex items-center gap-3 mb-3">
                       <div
                         className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -77,18 +77,18 @@ export default function ServerStatusCard() {
                       >
                         <Icon size={16} style={{ color: stat.color }} />
                       </div>
-                      <span className="text-[#64748b] text-sm">
+                      <span className="text-[#8a8279] text-sm">
                         {stat.label}
                       </span>
                     </div>
                     <div className="text-2xl font-bold text-white">
                       {loading ? (
-                        <div className="h-8 bg-[#1a2332] rounded animate-pulse" />
+                        <div className="h-8 bg-[#23201a] rounded animate-pulse" />
                       ) : (
                         <>
                           {stat.value}
                           {stat.max && (
-                            <span className="text-sm font-normal text-[#64748b]">
+                            <span className="text-sm font-normal text-[#8a8279]">
                               {" "}
                               {stat.max}
                             </span>

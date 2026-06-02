@@ -7,14 +7,10 @@ export const SERVER_CONFIG = {
   serverDescription: "一个专注长期运营的纯净养老生存服务器",
   serverVersion: "1.21.8",
   maxPlayers: 30,
-  foundedDate: "2024-01-01",
+  foundedDate: "2025-05-03",
 
   // BlueMap 地图
   blueMapUrl: "https://map.mgstudio.icu",
-
-  // Discord (旧字段，兼容 discord API route)
-  discordInvite: "https://discord.gg/your-invite",
-  discordGuildId: "your-guild-id",
 
   // 社区
   community: {
@@ -22,10 +18,6 @@ export const SERVER_CONFIG = {
       groupNumber: "123456789",
       joinUrl: "https://qm.qq.com/q/your-group",
       groupName: "云栖物语官方群",
-    },
-    discord: {
-      inviteUrl: "https://discord.gg/your-invite",
-      serverName: "云栖物语",
     },
     bilibili: {
       spaceUrl: "https://space.bilibili.com/your-uid",

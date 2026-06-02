@@ -7,7 +7,6 @@ import StatusOverview from "@/components/status/StatusOverview";
 import PlayerList from "@/components/status/PlayerList";
 import ServerInfo from "@/components/status/ServerInfo";
 import PerformanceChart from "@/components/status/PerformanceChart";
-import DiscordWidget from "@/components/discord/DiscordWidget";
 import DynmapEmbed from "@/components/map/DynmapEmbed";
 import type { ServerStatus } from "@/lib/minecraft-query";
 
@@ -90,10 +89,9 @@ export default function StatusPage() {
             />
           </div>
 
-          {/* Right Column - Info & Discord */}
+          {/* Right Column - Info */}
           <div className="space-y-6">
             <ServerInfo status={status} />
-            <DiscordWidget />
           </div>
         </div>
       </div>
