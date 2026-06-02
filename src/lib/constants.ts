@@ -71,7 +71,7 @@ export const SERVER_CONFIG = {
 };
 
 // 状态刷新间隔 (毫秒)
-export const STATUS_REFRESH_INTERVAL = 30000;
+export const STATUS_REFRESH_INTERVAL = 5000;
 
 // 头像 API
 export const CRAFATAR_BASE = "https://crafatar.com";

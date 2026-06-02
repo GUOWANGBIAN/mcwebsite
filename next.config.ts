@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
+import { execSync } from "child_process";
+
+let gitHash = "dev";
+try {
+  gitHash = execSync("git rev-parse --short HEAD").toString().trim();
+} catch {}
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  env: {
+    NEXT_PUBLIC_GIT_HASH: gitHash,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
@@ -17,10 +26,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "mc-heads.net",
-      },
-      {
-        protocol: "https",
-        hostname: "discord.com",
       },
     ],
   },
