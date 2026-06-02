@@ -22,11 +22,11 @@ export async function queryServerStatus(
   port: number = 41360
 ): Promise<ServerStatus> {
   try {
-    // 动态拼接地址，你传的 host 和 port 会生效
-    const address = `${host}:${port}`;
+    const startTime = Date.now();
     const res = await fetch(`https://api.mcsrvstat.us/3/play.mgstudio.icu`, {
       next: { revalidate: 10 },
     });
+    const latency = Date.now() - startTime;
 
     if (!res.ok) return getOfflineStatus();
     const data = await res.json();
@@ -43,15 +43,11 @@ export async function queryServerStatus(
           name: p.name,
         })),
       },
-      // ✅ 修复版本显示
       version: data.version || "Unknown",
-      // ✅ 修复 motd 报错（mcsrvstat 是字符串，不是数组）
       motd: data.motd?.clean || "",
-      // ✅ mcsrvstat 不提供 ping，写 0 不报错
-      latency: 0,
+      latency,
       favicon: data.icon || undefined,
       software: data.software || undefined,
-      // ✅ 修复 plugins 格式
       plugins: data.plugins ? Object.keys(data.plugins) : [],
     };
   } catch (err) {

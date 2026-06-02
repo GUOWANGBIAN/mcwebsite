@@ -152,14 +152,14 @@ export default function HeroSection() {
               已运行 <span className="text-white font-semibold">{daysRunning}</span> 天
             </span>
           </div>
-          {status?.latency && (
+          {status?.latency ? (
             <div className="flex items-center gap-2 px-4 py-2.5 glass rounded-xl">
               <Wifi size={15} className="text-[#7db87b]" />
               <span className="text-sm text-[#8a8279]">
                 延迟 <span className="text-white font-semibold">{status.latency}</span> ms
               </span>
             </div>
-          )}
+          ) : null}
         </motion.div>
       </div>
     </section>
