@@ -19,30 +19,26 @@ export default function StatusOverview({ status }: Props) {
       value: status?.online ? status.players.online : 0,
       suffix: status?.online ? `/ ${status.players.max}` : "",
       icon: Users,
-      color: "#4ade80",
-      bgColor: "#4ade8015",
+      color: "#d4a853",
     },
     {
       label: "服务器状态",
       value: status?.online ? "在线" : "离线",
       icon: Activity,
-      color: status?.online ? "#4ade80" : "#ef4444",
-      bgColor: status?.online ? "#4ade8015" : "#ef444415",
+      color: status?.online ? "#7db87b" : "#d96b5c",
     },
     {
       label: "网络延迟",
       value: status?.online ? `${status.latency}` : "--",
       suffix: status?.online ? "ms" : "",
       icon: Wifi,
-      color: "#06b6d4",
-      bgColor: "#06b6d415",
+      color: "#7db87b",
     },
     {
       label: "服务器版本",
       value: status?.online ? status.version : "--",
       icon: Clock,
-      color: "#f59e0b",
-      bgColor: "#f59e0b15",
+      color: "#e8a94e",
     },
   ];
 
@@ -53,24 +49,24 @@ export default function StatusOverview({ status }: Props) {
         return (
           <motion.div
             key={card.label}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="bg-[#111820] border border-[#1e2d3d] rounded-xl p-5"
+            transition={{ delay: i * 0.08, ease: "easeOut" }}
+            className="glass rounded-xl p-5"
           >
             <div className="flex items-center gap-3 mb-3">
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: card.bgColor }}
+                style={{ backgroundColor: `${card.color}15` }}
               >
                 <Icon size={20} style={{ color: card.color }} />
               </div>
-              <span className="text-[#64748b] text-sm">{card.label}</span>
+              <span className="text-[#8a8279] text-sm">{card.label}</span>
             </div>
             <div className="text-3xl font-bold text-white">
               {card.value}
               {card.suffix && (
-                <span className="text-sm font-normal text-[#64748b] ml-1">
+                <span className="text-sm font-normal text-[#8a8279] ml-1">
                   {card.suffix}
                 </span>
               )}

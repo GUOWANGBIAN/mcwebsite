@@ -1,72 +1,58 @@
+"use client";
+
 import Link from "next/link";
-import { MessageCircle, Globe, AtSign, Video, GitCommit } from "lucide-react";
+import { GitCommit, Clock, MapPin, Gamepad2 } from "lucide-react";
 import { SERVER_CONFIG, NAV_LINKS } from "@/lib/constants";
+import changelog from "@/data/changelog.json";
 
 const GIT_HASH = process.env.NEXT_PUBLIC_GIT_HASH || "dev";
 
+function getDaysSince(dateStr: string) {
+  const founded = new Date(dateStr);
+  const now = new Date();
+  return Math.floor((now.getTime() - founded.getTime()) / (1000 * 60 * 60 * 24));
+}
+
 export default function Footer() {
+  const daysRunning = getDaysSince(SERVER_CONFIG.foundedDate);
+  const recentChanges = changelog.slice(0, 3);
+
   return (
-    <footer className="bg-[#0a0e14] border-t border-[#1e2d3d] mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-1">
+    <footer className="border-t border-[#2a2520]/60 mt-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Brand & Uptime */}
+          <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-[#4ade80] rounded flex items-center justify-center text-black font-bold text-lg mc-btn">
-                M
+              <div className="w-9 h-9 bg-[#d4a853] rounded-lg flex items-center justify-center text-black font-bold text-sm">
+                云
               </div>
-              <span className="text-xl font-bold text-white">
+              <span className="text-lg font-bold text-white">
                 {SERVER_CONFIG.serverName}
               </span>
             </div>
-            <p className="text-[#64748b] text-sm leading-relaxed mb-4">
+            <p className="text-[#8a8279] text-sm leading-relaxed mb-5">
               {SERVER_CONFIG.serverDescription}
             </p>
-            <div className="flex gap-3">
-              <a
-                href={SERVER_CONFIG.discordInvite}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-[#5865f2] hover:border-[#5865f2]/30 transition-colors"
-              >
-                <MessageCircle size={16} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-white hover:border-white/30 transition-colors"
-              >
-                <Globe size={16} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-[#1da1f2] hover:border-[#1da1f2]/30 transition-colors"
-              >
-                <AtSign size={16} />
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-[#111820] border border-[#1e2d3d] rounded-lg flex items-center justify-center text-[#64748b] hover:text-[#ff0000] hover:border-[#ff0000]/30 transition-colors"
-              >
-                <Video size={16} />
-              </a>
+            <div className="inline-flex items-center gap-2 px-4 py-2.5 glass rounded-xl">
+              <Clock size={14} className="text-[#d4a853]" />
+              <span className="text-sm text-[#8a8279]">
+                已稳定运行{" "}
+                <span className="text-white font-semibold">{daysRunning}</span>{" "}
+                天
+              </span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold mb-4">快速链接</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#64748b] text-sm hover:text-[#4ade80] transition-colors"
+                    className="text-[#8a8279] text-sm hover:text-[#d4a853] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -75,119 +61,81 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">资源</h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="https://www.minecraft.net/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#64748b] text-sm hover:text-[#4ade80] transition-colors"
-                >
-                  Minecraft 官网
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://papermc.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#64748b] text-sm hover:text-[#4ade80] transition-colors"
-                >
-                  PaperMC
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.curseforge.com/minecraft"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#64748b] text-sm hover:text-[#4ade80] transition-colors"
-                >
-                  CurseForge
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/docs"
-                  className="text-[#64748b] text-sm hover:text-[#4ade80] transition-colors"
-                >
-                  服务器文档
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Server Info */}
+          {/* Server Info & Changelog */}
           <div>
             <h3 className="text-white font-semibold mb-4">服务器信息</h3>
-            <div className="space-y-3 text-sm">
-              <div>
-                <span className="text-[#64748b]">服务器地址</span>
-                <p className="text-[#4ade80] font-mono">
+            <div className="space-y-3 text-sm mb-6">
+              <div className="flex items-center gap-2">
+                <MapPin size={14} className="text-[#d4a853]" />
+                <span className="text-[#8a8279] font-mono">
                   {SERVER_CONFIG.serverIP}
-                </p>
+                </span>
               </div>
-              <div>
-                <span className="text-[#64748b]">游戏版本</span>
-                <p className="text-white">{SERVER_CONFIG.serverVersion}</p>
-              </div>
-              <div>
-                <span className="text-[#64748b]">成立时间</span>
-                <p className="text-white">{SERVER_CONFIG.foundedDate}</p>
+              <div className="flex items-center gap-2">
+                <Gamepad2 size={14} className="text-[#7db87b]" />
+                <span className="text-[#8a8279]">
+                  {SERVER_CONFIG.serverVersion} · 最多 {SERVER_CONFIG.maxPlayers} 人
+                </span>
               </div>
             </div>
+
+            <h3 className="text-white font-semibold mb-3 text-sm">最近更新</h3>
+            <ul className="space-y-2">
+              {recentChanges.map((c) => (
+                <li key={c.version} className="text-xs">
+                  <span className="text-[#d4a853] font-mono">v{c.version}</span>
+                  <span className="text-[#8a8279]/50 ml-2">{c.date}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-[#1e2d3d] flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-10 pt-6 border-t border-[#2a2520]/40 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
-            <p className="text-[#64748b] text-xs">
+            <p className="text-[#8a8279]/60 text-xs">
               &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not affiliated with Mojang AB.
             </p>
             <a
-              href={`https://github.com/GUOWANGBIAN/mcwebsite/commits/${GIT_HASH}`}
+              href={`https://github.com/GUOWANGBIAN/mcwebsite/commit/${GIT_HASH}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#111820] border border-[#1e2d3d] rounded text-[#64748b] hover:text-[#4ade80] hover:border-[#4ade80]/30 transition-colors text-xs font-mono"
+              className="inline-flex items-center gap-1 px-2 py-0.5 glass rounded text-[#8a8279]/50 hover:text-[#d4a853] transition-colors text-xs font-mono"
               title="查看当前部署的 commit"
             >
-              <GitCommit size={12} />
+              <GitCommit size={11} />
               {GIT_HASH}
             </a>
           </div>
 
-          {/* 备案区域 - 已修复 JSX 语法错误 */}
-          <div className="flex items-center gap-1.5 text-[#64748b] text-xs whitespace-nowrap">
-            <a 
-              href="https://beian.miit.gov.cn/" 
+          {/* 备案区域 */}
+          <div className="flex items-center gap-1.5 text-[#8a8279]/60 text-xs whitespace-nowrap">
+            <a
+              href="https://beian.miit.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#4ade80] transition-colors"
+              className="hover:text-[#d4a853] transition-colors"
             >
               青ICP备2026000189号-1
             </a>
-            {/* 分隔符必须用 JSX 元素包裹 */}
             <span>|</span>
-            <a 
-              href="https://beian.mps.gov.cn/" 
-              target="_blank" 
+            <a
+              href="https://beian.mps.gov.cn/"
+              target="_blank"
               rel="noopener noreferrer"
             >
-              <img 
-                src="./beian.png" 
-                alt="警徽" 
-                className="h-5 w-auto object-contain"
+              <img
+                src="./beian.png"
+                alt="警徽"
+                className="h-5 w-auto object-contain opacity-60"
               />
             </a>
-            <a 
-              href="https://beian.mps.gov.cn/#/query/webSearch?code=63012102000179" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://beian.mps.gov.cn/#/query/webSearch?code=63012102000179"
+              rel="noopener noreferrer"
               target="_blank"
-              className="hover:text-[#4ade80] transition-colors"
+              className="hover:text-[#d4a853] transition-colors"
             >
               青公网安备63012102000179号
             </a>

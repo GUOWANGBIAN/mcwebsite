@@ -1,19 +1,28 @@
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
-import ServerStatusCard from "@/components/home/ServerStatusCard";
-import FeatureShowcase from "@/components/home/FeatureShowcase";
-import QuickStartGuide from "@/components/home/QuickStartGuide";
-import LatestNews from "@/components/home/LatestNews";
-import DiscordBanner from "@/components/discord/DiscordBanner";
+import ServerFeatures from "@/components/home/ServerFeatures";
+import ServerTimeline from "@/components/home/ServerTimeline";
+import CommunityModule from "@/components/home/CommunityModule";
+
+// Dynamic imports for heavier sections
+const PlayerWorksGallery = dynamic(
+  () => import("@/components/home/PlayerWorksGallery"),
+  { ssr: false }
+);
+const RealtimeMonitoring = dynamic(
+  () => import("@/components/home/RealtimeMonitoring"),
+  { ssr: false }
+);
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ServerStatusCard />
-      <FeatureShowcase />
-      <QuickStartGuide />
-      <LatestNews />
-      <DiscordBanner />
+      <ServerFeatures />
+      <PlayerWorksGallery />
+      <ServerTimeline />
+      <RealtimeMonitoring />
+      <CommunityModule />
     </>
   );
 }

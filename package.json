@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NEXT_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) next build",
+    "build": "node -e \"const{execSync}=require('child_process');process.env.NEXT_PUBLIC_GIT_HASH=execSync('git rev-parse --short HEAD').toString().trim()\" && next build",
     "start": "next start",
     "lint": "eslint"
   },

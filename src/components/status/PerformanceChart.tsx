@@ -73,18 +73,18 @@ export default function PerformanceChart() {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#1a2332] border border-[#1e2d3d] rounded-lg p-3 shadow-xl">
-          <p className="text-[#64748b] text-xs mb-2">{label}</p>
+        <div className="bg-[#1a1814]/95 border border-[#2a2520]/60 rounded-lg p-3 shadow-xl backdrop-blur-sm">
+          <p className="text-[#8a8279] text-xs mb-2">{label}</p>
           {payload.map((p) => (
             <p key={p.dataKey} className="text-sm">
               <span
                 className="inline-block w-2 h-2 rounded-full mr-2"
                 style={{
                   backgroundColor:
-                    p.dataKey === "players" ? "#4ade80" : "#06b6d4",
+                    p.dataKey === "players" ? "#d4a853" : "#7db87b",
                 }}
               />
-              <span className="text-[#64748b]">
+              <span className="text-[#8a8279]">
                 {p.dataKey === "players" ? "玩家数" : "延迟"}:{" "}
               </span>
               <span className="text-white font-medium">
@@ -100,11 +100,11 @@ export default function PerformanceChart() {
   };
 
   return (
-    <div className="bg-[#111820] border border-[#1e2d3d] rounded-xl p-6">
+    <div className="glass rounded-xl p-6">
       <div className="flex items-center gap-2 mb-5">
-        <BarChart3 size={18} className="text-[#4ade80]" />
+        <BarChart3 size={18} className="text-[#d4a853]" />
         <h3 className="text-white font-semibold">服务器趋势</h3>
-        <span className="text-[#64748b] text-xs ml-auto">最近 2 小时</span>
+        <span className="text-[#8a8279] text-xs ml-auto">最近 2 小时</span>
       </div>
 
       <div className="h-64">
@@ -112,24 +112,24 @@ export default function PerformanceChart() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="colorPlayers" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4ade80" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#4ade80" stopOpacity={0} />
+                <stop offset="5%" stopColor="#d4a853" stopOpacity={0.2} />
+                <stop offset="95%" stopColor="#d4a853" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="colorLatency" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#06b6d4" stopOpacity={0} />
+                <stop offset="5%" stopColor="#7db87b" stopOpacity={0.2} />
+                <stop offset="95%" stopColor="#7db87b" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e2d3d" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#2a2520]/30" />
             <XAxis
               dataKey="time"
-              stroke="#475569"
-              tick={{ fill: "#64748b", fontSize: 11 }}
+              stroke="#8a8279"
+              tick={{ fill: "#8a8279", fontSize: 11 }}
               tickLine={false}
             />
             <YAxis
-              stroke="#475569"
-              tick={{ fill: "#64748b", fontSize: 11 }}
+              stroke="#8a8279"
+              tick={{ fill: "#8a8279", fontSize: 11 }}
               tickLine={false}
               axisLine={false}
             />
@@ -137,15 +137,15 @@ export default function PerformanceChart() {
             <Area
               type="monotone"
               dataKey="players"
-              stroke="#4ade80"
-              strokeWidth={2}
+              stroke="#d4a853"
+              strokeWidth={1.5}
               fill="url(#colorPlayers)"
             />
             <Area
               type="monotone"
               dataKey="latency"
-              stroke="#06b6d4"
-              strokeWidth={2}
+              stroke="#7db87b"
+              strokeWidth={1.5}
               fill="url(#colorLatency)"
             />
           </AreaChart>
@@ -154,12 +154,12 @@ export default function PerformanceChart() {
 
       <div className="flex justify-center gap-6 mt-4">
         <div className="flex items-center gap-2">
-          <span className="w-3 h-0.5 bg-[#4ade80] rounded" />
-          <span className="text-[#64748b] text-xs">玩家数</span>
+          <span className="w-3 h-0.5 bg-[#d4a853] rounded" />
+          <span className="text-[#8a8279] text-xs">玩家数</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-3 h-0.5 bg-[#06b6d4] rounded" />
-          <span className="text-[#64748b] text-xs">延迟 (ms)</span>
+          <span className="w-3 h-0.5 bg-[#7db87b] rounded" />
+          <span className="text-[#8a8279] text-xs">延迟 (ms)</span>
         </div>
       </div>
     </div>

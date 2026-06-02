@@ -39,20 +39,21 @@ export default function StatusPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8"
         >
           <div>
             <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
               服务器状态
               {status?.online ? (
-                <Wifi size={24} className="text-[#4ade80]" />
+                <Wifi size={24} className="text-[#7db87b]" />
               ) : (
-                <WifiOff size={24} className="text-[#ef4444]" />
+                <WifiOff size={24} className="text-[#d96b5c]" />
               )}
             </h1>
-            <p className="text-[#64748b] text-sm">
+            <p className="text-[#8a8279] text-sm">
               实时监控服务器运行状态
               {lastUpdate && (
                 <span className="ml-2">
@@ -65,7 +66,7 @@ export default function StatusPage() {
           <button
             onClick={fetchStatus}
             disabled={loading}
-            className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-[#111820] border border-[#1e2d3d] rounded-lg text-sm text-[#64748b] hover:text-white hover:border-[#2a3f52] transition-colors disabled:opacity-50"
+            className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 glass rounded-xl text-sm text-[#8a8279] hover:text-white transition-colors disabled:opacity-50"
           >
             <RefreshCw
               size={14}

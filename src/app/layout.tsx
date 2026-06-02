@@ -6,7 +6,7 @@ import { SERVER_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
-    default: `${SERVER_CONFIG.serverName} - Minecraft Java 版服务器`,
+    default: `${SERVER_CONFIG.serverName} - ${SERVER_CONFIG.serverDescription}`,
     template: `%s | ${SERVER_CONFIG.serverName}`,
   },
   description: SERVER_CONFIG.serverDescription,
@@ -14,7 +14,9 @@ export const metadata: Metadata = {
     "Minecraft",
     "服务器",
     "Java版",
-    "多人游戏",
+    "纯净生存",
+    "养老服",
+    "长期运营",
     SERVER_CONFIG.serverName,
   ],
   icons: {
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     shortcut: "/Java_Edition_icon_2.png",
   },
   openGraph: {
-    title: `${SERVER_CONFIG.serverName} - Minecraft Java 版服务器`,
+    title: `${SERVER_CONFIG.serverName} - ${SERVER_CONFIG.serverDescription}`,
     description: SERVER_CONFIG.serverDescription,
     type: "website",
   },
@@ -43,7 +45,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0a0e14] text-[#e8e6e3]">
+      <body className="min-h-full flex flex-col bg-[#0f0e0b] text-[#f0ece4]">
         <Navbar />
         <main className="flex-1 pt-16">{children}</main>
         <Footer />

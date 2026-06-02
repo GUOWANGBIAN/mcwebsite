@@ -6,7 +6,6 @@ import { Search, Users, Trophy, Clock, Sword, Pickaxe } from "lucide-react";
 import PlayerCard from "@/components/players/PlayerCard";
 import Leaderboard from "@/components/players/Leaderboard";
 
-// Demo data for the leaderboard
 const demoLeaderboard = {
   playtime: [
     { rank: 1, uuid: "demo-uuid-1", name: "Steve", value: 1250, label: "小时" },
@@ -66,15 +65,16 @@ export default function PlayersPage() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ ease: "easeOut" }}
           className="mb-8"
         >
           <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-            <Users size={28} className="text-[#06b6d4]" />
+            <Users size={28} className="text-[#d4a853]" />
             玩家中心
           </h1>
-          <p className="text-[#64748b]">
+          <p className="text-[#8a8279]">
             查看在线玩家和排行榜数据
           </p>
         </motion.div>
@@ -83,20 +83,20 @@ export default function PlayersPage() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1, ease: "easeOut" }}
           className="mb-8"
         >
           <div className="relative max-w-md">
             <Search
               size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-[#64748b]"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8a8279]"
             />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="搜索玩家..."
-              className="w-full pl-11 pr-4 py-3 bg-[#111820] border border-[#1e2d3d] rounded-xl text-white text-sm placeholder-[#475569] focus:border-[#4ade80]/50 focus:outline-none transition-colors"
+              className="w-full pl-11 pr-4 py-3 glass rounded-xl text-white text-sm placeholder-[#8a8279]/50 focus:border-[#d4a853]/30 focus:outline-none transition-colors"
             />
           </div>
         </motion.div>
@@ -104,13 +104,13 @@ export default function PlayersPage() {
         {/* Online Players */}
         {onlinePlayers.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, ease: "easeOut" }}
             className="mb-10"
           >
             <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#4ade80] rounded-full pulse-green" />
+              <span className="w-2 h-2 bg-[#7db87b] rounded-full pulse-green" />
               当前在线 ({filteredPlayers.length})
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -128,16 +128,15 @@ export default function PlayersPage() {
 
         {/* Leaderboards */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.3, ease: "easeOut" }}
         >
           <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-            <Trophy size={20} className="text-[#f59e0b]" />
+            <Trophy size={20} className="text-[#e8a94e]" />
             排行榜
           </h2>
 
-          {/* Tabs */}
           <div className="flex gap-2 mb-6">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -145,10 +144,10 @@ export default function PlayersPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                     activeTab === tab.id
-                      ? "bg-[#4ade80]/10 text-[#4ade80] border border-[#4ade80]/20"
-                      : "bg-[#111820] text-[#64748b] border border-[#1e2d3d] hover:text-white"
+                      ? "bg-[#d4a853]/10 text-[#d4a853] border border-[#d4a853]/20"
+                      : "glass text-[#8a8279] hover:text-white"
                   }`}
                 >
                   <Icon size={14} />

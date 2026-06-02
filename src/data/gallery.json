@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "出生点广场",
+    "description": "精心设计的服务器出生点，欢迎每一位新冒险者",
+    "category": "建筑",
+    "author": "CNQH_Guoshifu",
+    "date": "2024-01-15",
+    "src": "/gallery/spawn.jpg"
+  },
+  {
+    "id": 2,
+    "title": "樱花小镇",
+    "description": "日式风格的玩家小镇，春天樱花盛开时格外美丽",
+    "category": "城镇",
+    "author": "Builder1",
+    "date": "2024-03-20",
+    "src": "/gallery/sakura-town.jpg"
+  },
+  {
+    "id": 3,
+    "title": "云端城堡",
+    "description": "建在天空之上的宏伟城堡，俯瞰整个大陆",
+    "category": "建筑",
+    "author": "Builder2",
+    "date": "2024-05-10",
+    "src": "/gallery/cloud-castle.jpg"
+  },
+  {
+    "id": 4,
+    "title": "海边渔村",
+    "description": "宁静的海边小渔村，日落时分的景色令人陶醉",
+    "category": "风景",
+    "author": "Player1",
+    "date": "2024-07-08",
+    "src": "/gallery/fishing-village.jpg"
+  },
+  {
+    "id": 5,
+    "title": "夏季建筑大赛",
+    "description": "第一届建筑大赛的精彩瞬间",
+    "category": "活动",
+    "author": "CNQH_Guoshifu",
+    "date": "2024-06-15",
+    "src": "/gallery/build-contest.jpg"
+  },
+  {
+    "id": 6,
+    "title": "地下矿城",
+    "description": "深入地底的宏伟地下城市，灯火通明",
+    "category": "建筑",
+    "author": "Miner1",
+    "date": "2024-08-22",
+    "src": "/gallery/underground.jpg"
+  },
+  {
+    "id": 7,
+    "title": "节日庆典",
+    "description": "服务器一周年庆典活动的热闹场面",
+    "category": "活动",
+    "author": "CNQH_Guoshifu",
+    "date": "2025-01-01",
+    "src": "/gallery/anniversary.jpg"
+  },
+  {
+    "id": 8,
+    "title": "雪山营地",
+    "description": "坐落在雪山之巅的温馨营地",
+    "category": "风景",
+    "author": "Explorer1",
+    "date": "2025-02-14",
+    "src": "/gallery/snow-camp.jpg"
+  },
+  {
+    "id": 9,
+    "title": "商业街",
+    "description": "繁华的玩家商业街，各种店铺林立",
+    "category": "城镇",
+    "author": "Merchant1",
+    "date": "2025-03-30",
+    "src": "/gallery/market-street.jpg"
+  }
+]

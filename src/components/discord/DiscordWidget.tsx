@@ -34,14 +34,14 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
 
   if (error) {
     return (
-      <div className="bg-[#111820] border border-[#1e2d3d] rounded-xl p-6 text-center">
+      <div className="glass rounded-xl p-6 text-center">
         <MessageSquare className="mx-auto mb-3 text-[#5865f2]" size={32} />
-        <p className="text-[#64748b] text-sm mb-4">加入 Discord 获取最新消息</p>
+        <p className="text-[#8a8279] text-sm mb-4">加入 Discord 获取最新消息</p>
         <a
-          href={SERVER_CONFIG.discordInvite}
+          href={SERVER_CONFIG.community.discord.inviteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#5865f2] rounded-lg text-white text-sm font-medium hover:bg-[#4752c4] transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#5865f2]/80 rounded-xl text-white text-sm font-medium hover:bg-[#5865f2] transition-colors"
         >
           加入 Discord
         </a>
@@ -51,23 +51,23 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
 
   if (compact) {
     return (
-      <div className="bg-[#111820] border border-[#1e2d3d] rounded-xl p-4 flex items-center gap-3">
-        <div className="w-10 h-10 bg-[#5865f2] rounded-lg flex items-center justify-center">
-          <MessageSquare size={20} className="text-white" />
+      <div className="glass rounded-xl p-4 flex items-center gap-3">
+        <div className="w-10 h-10 bg-[#5865f2]/20 rounded-lg flex items-center justify-center">
+          <MessageSquare size={20} className="text-[#5865f2]" />
         </div>
         <div className="flex-1">
           <p className="text-white text-sm font-medium">
             {data?.name || "Discord 社区"}
           </p>
-          <p className="text-[#64748b] text-xs">
+          <p className="text-[#8a8279] text-xs">
             {data?.presence_count || 0} 名成员在线
           </p>
         </div>
         <a
-          href={SERVER_CONFIG.discordInvite}
+          href={SERVER_CONFIG.community.discord.inviteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-3 py-1.5 bg-[#5865f2] rounded-lg text-white text-xs font-medium hover:bg-[#4752c4] transition-colors"
+          className="px-3 py-1.5 bg-[#5865f2]/80 rounded-lg text-white text-xs font-medium hover:bg-[#5865f2] transition-colors"
         >
           加入
         </a>
@@ -76,9 +76,9 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
   }
 
   return (
-    <div className="bg-[#111820] border border-[#1e2d3d] rounded-xl overflow-hidden">
+    <div className="glass rounded-xl overflow-hidden">
       {/* Header */}
-      <div className="bg-[#5865f2] p-4 flex items-center gap-3">
+      <div className="bg-[#5865f2]/80 p-4 flex items-center gap-3">
         <MessageSquare size={20} className="text-white" />
         <div>
           <p className="text-white font-semibold text-sm">
@@ -95,7 +95,7 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
       <div className="p-4">
         {data?.members && data.members.length > 0 ? (
           <div className="space-y-2 mb-4">
-            <p className="text-[#64748b] text-xs uppercase tracking-wider mb-2">
+            <p className="text-[#8a8279] text-xs uppercase tracking-wider mb-2">
               在线成员
             </p>
             {data.members.slice(0, 10).map((member) => (
@@ -108,14 +108,14 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
                   alt={member.username}
                   className="w-6 h-6 rounded-full"
                 />
-                <span className="text-[#dcddde] text-sm">{member.username}</span>
+                <span className="text-[#f0ece4]/80 text-sm">{member.username}</span>
                 <span
                   className={`w-2 h-2 rounded-full ml-auto ${
                     member.status === "online"
-                      ? "bg-[#4ade80]"
+                      ? "bg-[#7db87b]"
                       : member.status === "idle"
-                        ? "bg-[#f59e0b]"
-                        : "bg-[#64748b]"
+                        ? "bg-[#e8a94e]"
+                        : "bg-[#8a8279]"
                   }`}
                 />
               </div>
@@ -123,18 +123,17 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
           </div>
         ) : null}
 
-        {/* Voice channels */}
         {data?.channels && data.channels.length > 0 && (
           <div className="mb-4">
-            <p className="text-[#64748b] text-xs uppercase tracking-wider mb-2">
+            <p className="text-[#8a8279] text-xs uppercase tracking-wider mb-2">
               语音频道
             </p>
             {data.channels.map((ch) => (
               <div
                 key={ch.id}
-                className="flex items-center gap-2 py-1 text-[#dcddde] text-sm"
+                className="flex items-center gap-2 py-1 text-[#f0ece4]/80 text-sm"
               >
-                <Volume2 size={14} className="text-[#64748b]" />
+                <Volume2 size={14} className="text-[#8a8279]" />
                 {ch.name}
               </div>
             ))}
@@ -142,10 +141,10 @@ export default function DiscordWidget({ compact = false }: { compact?: boolean }
         )}
 
         <a
-          href={SERVER_CONFIG.discordInvite}
+          href={SERVER_CONFIG.community.discord.inviteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center py-2.5 bg-[#5865f2] rounded-lg text-white text-sm font-medium hover:bg-[#4752c4] transition-colors"
+          className="block w-full text-center py-2.5 bg-[#5865f2]/80 rounded-xl text-white text-sm font-medium hover:bg-[#5865f2] transition-colors"
         >
           加入 Discord
         </a>

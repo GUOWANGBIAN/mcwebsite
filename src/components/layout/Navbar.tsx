@@ -54,18 +54,18 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-[#0a0e14]/95 backdrop-blur-xl border-b border-[#1e2d3d]"
+          ? "bg-[#0f0e0b]/95 backdrop-blur-xl border-b border-[#2a2520]/60"
           : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-[#4ade80] rounded flex items-center justify-center text-black font-bold text-sm mc-btn">
-              M
+            <div className="w-8 h-8 bg-[#d4a853] rounded-lg flex items-center justify-center text-black font-bold text-sm">
+              云
             </div>
-            <span className="text-lg font-bold text-white group-hover:text-[#4ade80] transition-colors">
+            <span className="text-lg font-bold text-white group-hover:text-[#d4a853] transition-colors">
               {SERVER_CONFIG.serverName}
             </span>
           </Link>
@@ -82,11 +82,11 @@ export default function Navbar() {
                   className={cn(
                     "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                     isActive
-                      ? "bg-[#4ade80]/10 text-[#4ade80]"
-                      : "text-[#64748b] hover:text-white hover:bg-white/5"
+                      ? "bg-[#d4a853]/10 text-[#d4a853]"
+                      : "text-[#8a8279] hover:text-white hover:bg-white/5"
                   )}
                 >
-                  <Icon size={16} />
+                  <Icon size={15} />
                   {link.label}
                 </Link>
               );
@@ -97,7 +97,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={handleCopyIP}
-              className="flex items-center gap-2 px-4 py-2 bg-[#111820] border border-[#1e2d3d] rounded-lg text-sm font-mono text-[#4ade80] hover:bg-[#1a2332] transition-colors mc-btn"
+              className="flex items-center gap-2 px-4 py-2 glass rounded-xl text-sm font-mono text-[#d4a853] hover:bg-[#23201a]/65 transition-colors"
             >
               {copied ? (
                 <>
@@ -110,10 +110,10 @@ export default function Navbar() {
               )}
             </button>
             <a
-              href={SERVER_CONFIG.discordInvite}
+              href={SERVER_CONFIG.community.discord.inviteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-[#5865f2] rounded-lg text-sm font-medium text-white hover:bg-[#4752c4] transition-colors mc-btn"
+              className="flex items-center gap-2 px-4 py-2 bg-[#5865f2]/80 rounded-xl text-sm font-medium text-white hover:bg-[#5865f2] transition-colors"
             >
               <ExternalLink size={14} /> Discord
             </a>
@@ -122,7 +122,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-[#64748b] hover:text-white"
+            className="md:hidden p-2 text-[#8a8279] hover:text-white"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -136,7 +136,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0a0e14]/98 backdrop-blur-xl border-b border-[#1e2d3d] overflow-hidden"
+            className="md:hidden bg-[#0f0e0b]/98 backdrop-blur-xl border-b border-[#2a2520]/60 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {NAV_LINKS.map((link) => {
@@ -148,10 +148,10 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all",
+                      "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all",
                       isActive
-                        ? "bg-[#4ade80]/10 text-[#4ade80]"
-                        : "text-[#64748b] hover:text-white hover:bg-white/5"
+                        ? "bg-[#d4a853]/10 text-[#d4a853]"
+                        : "text-[#8a8279] hover:text-white hover:bg-white/5"
                     )}
                   >
                     <Icon size={18} />
@@ -159,18 +159,18 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <div className="pt-3 border-t border-[#1e2d3d] flex flex-col gap-2">
+              <div className="pt-3 border-t border-[#2a2520]/40 flex flex-col gap-2">
                 <button
                   onClick={handleCopyIP}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#111820] border border-[#1e2d3d] rounded-lg text-sm font-mono text-[#4ade80]"
+                  className="flex items-center justify-center gap-2 px-4 py-3 glass rounded-xl text-sm font-mono text-[#d4a853]"
                 >
                   <Copy size={14} /> {SERVER_CONFIG.serverIP}
                 </button>
                 <a
-                  href={SERVER_CONFIG.discordInvite}
+                  href={SERVER_CONFIG.community.discord.inviteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#5865f2] rounded-lg text-sm font-medium text-white"
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#5865f2]/80 rounded-xl text-sm font-medium text-white"
                 >
                   <ExternalLink size={14} /> 加入 Discord
                 </a>

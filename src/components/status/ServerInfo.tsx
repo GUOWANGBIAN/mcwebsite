@@ -1,6 +1,6 @@
 "use client";
 
-import { Server, Info, Layers } from "lucide-react";
+import { Server, Layers } from "lucide-react";
 import { SERVER_CONFIG } from "@/lib/constants";
 
 interface Props {
@@ -19,13 +19,12 @@ export default function ServerInfo({ status }: Props) {
     { label: "服务端", value: status?.software || "Paper/Spigot" },
     { label: "最大人数", value: `${SERVER_CONFIG.maxPlayers}` },
     { label: "成立时间", value: SERVER_CONFIG.foundedDate },
-    { label: "地图种子", value: "仅管理员可见", muted: true },
   ];
 
   return (
-    <div className="bg-[#111820] border border-[#1e2d3d] rounded-xl p-6">
+    <div className="glass rounded-xl p-6">
       <div className="flex items-center gap-2 mb-5">
-        <Server size={18} className="text-[#f59e0b]" />
+        <Server size={18} className="text-[#d4a853]" />
         <h3 className="text-white font-semibold">服务器信息</h3>
       </div>
 
@@ -33,16 +32,12 @@ export default function ServerInfo({ status }: Props) {
         {info.map((item) => (
           <div
             key={item.label}
-            className="flex items-center justify-between py-2 border-b border-[#1e2d3d] last:border-0"
+            className="flex items-center justify-between py-2 border-b border-[#2a2520]/40 last:border-0"
           >
-            <span className="text-[#64748b] text-sm">{item.label}</span>
+            <span className="text-[#8a8279] text-sm">{item.label}</span>
             <span
               className={`text-sm ${
-                item.mono
-                  ? "font-mono text-[#4ade80]"
-                  : item.muted
-                    ? "text-[#475569]"
-                    : "text-white"
+                item.mono ? "font-mono text-[#d4a853]" : "text-white"
               }`}
             >
               {item.value}
@@ -51,18 +46,17 @@ export default function ServerInfo({ status }: Props) {
         ))}
       </div>
 
-      {/* Plugins */}
       {status?.plugins && status.plugins.length > 0 && (
-        <div className="mt-5 pt-5 border-t border-[#1e2d3d]">
+        <div className="mt-5 pt-5 border-t border-[#2a2520]/40">
           <div className="flex items-center gap-2 mb-3">
-            <Layers size={16} className="text-[#06b6d4]" />
-            <span className="text-[#64748b] text-sm">已安装插件</span>
+            <Layers size={16} className="text-[#7db87b]" />
+            <span className="text-[#8a8279] text-sm">已安装插件</span>
           </div>
           <div className="flex flex-wrap gap-2">
             {status.plugins.map((p) => (
               <span
                 key={p}
-                className="px-2 py-1 bg-[#0d1117] rounded text-xs text-[#dcddde] border border-[#1e2d3d]"
+                className="px-2 py-1 bg-[#0f0e0b]/50 rounded text-xs text-[#f0ece4]/70 border border-[#2a2520]/40"
               >
                 {p}
               </span>
