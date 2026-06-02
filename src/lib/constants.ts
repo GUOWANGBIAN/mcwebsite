@@ -9,6 +9,13 @@ export const SERVER_CONFIG = {
   maxPlayers: 30,
   foundedDate: "2024-01-01",
 
+  // BlueMap 地图
+  blueMapUrl: "https://map.mgstudio.icu",
+
+  // Discord (旧字段，兼容 discord API route)
+  discordInvite: "https://discord.gg/your-invite",
+  discordGuildId: "your-guild-id",
+
   // 社区
   community: {
     qq: {
