@@ -50,7 +50,8 @@ function MiniChart({
   value,
   unit,
 }: {
-  data: Record<string, unknown>[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any;
   dataKey: string;
   color: string;
   label: string;
