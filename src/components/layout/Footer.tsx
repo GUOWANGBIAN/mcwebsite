@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { MessageCircle, Globe, AtSign, Video } from "lucide-react";
+import { MessageCircle, Globe, AtSign, Video, GitCommit } from "lucide-react";
 import { SERVER_CONFIG, NAV_LINKS } from "@/lib/constants";
+
+const GIT_HASH = process.env.NEXT_PUBLIC_GIT_HASH || "dev";
 
 export default function Footer() {
   return (
@@ -142,9 +144,21 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-[#1e2d3d] flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[#64748b] text-xs">
-            &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not affiliated with Mojang AB.
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="text-[#64748b] text-xs">
+              &copy; {new Date().getFullYear()} {SERVER_CONFIG.serverName}. Not affiliated with Mojang AB.
+            </p>
+            <a
+              href={`https://github.com/GUOWANGBIAN/mcwebsite/commits/main/${GIT_HASH}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2 py-0.5 bg-[#111820] border border-[#1e2d3d] rounded text-[#64748b] hover:text-[#4ade80] hover:border-[#4ade80]/30 transition-colors text-xs font-mono"
+              title="查看当前部署的 commit"
+            >
+              <GitCommit size={12} />
+              {GIT_HASH}
+            </a>
+          </div>
 
           {/* 备案区域 - 已修复 JSX 语法错误 */}
           <div className="flex items-center gap-1.5 text-[#64748b] text-xs whitespace-nowrap">

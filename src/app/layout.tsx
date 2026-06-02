@@ -18,7 +18,10 @@ export const metadata: Metadata = {
     SERVER_CONFIG.serverName,
   ],
   icons: {
-    icon: "/Java_Edition_icon_2.png",
+    icon: [
+      { url: "/Java_Edition_icon_2.png", type: "image/png" },
+    ],
+    shortcut: "/Java_Edition_icon_2.png",
   },
   openGraph: {
     title: `${SERVER_CONFIG.serverName} - Minecraft Java 版服务器`,
